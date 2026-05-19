@@ -137,7 +137,7 @@ The unit tests validate configuration loading, service behavior, and Treasury re
 
 In a larger production codebase, I would normally use JUnit and a mocking framework such as Mockito for test structure and mock verification. They are intentionally omitted here to keep the repository dependency-free and to avoid extra dependency downloads for reviewers. The Java client is not stubbed; it is a real HTTP client that calls the running service. The running application itself always uses the live Treasury FiscalData API for currency conversion. Configuration is loaded from Java property files under `src/main/resources`.
 
-## Start the application
+## Start the application on the built-in HTTP server. 
 
 Mac/Linux:
 
@@ -200,7 +200,7 @@ java -Dapp.env=prod \
 
 Currency conversion always calls the live Treasury FiscalData API. The API URL is configured through `treasury.api.base-url` in the property files so it is not hardcoded in the Java client code.
 
-## Build and run executable JAR
+## Build and run executable JAR - another way to start the application using java command. Application is packaged as an executable jar file 
 
 Mac/Linux:
 
@@ -223,7 +223,7 @@ scripts\build-jar.bat
 java -jar release\purchase-fx-service.jar
 ```
 
-## API
+## API - use curl from a separate terminal window to invoke the application API end points. Three operations
 
 ### Create purchase
 
@@ -426,4 +426,4 @@ This selects the most recent rate on or before the purchase date and within six 
 
 ## Extension points
 
-For a larger production deployment, I would add OpenAPI docs, structured logging, metrics, request IDs, exchange-rate caching, resilience policies for Treasury API outages, a standard JSON library, CI pipeline, container image publishing, and swap the repository interface to a managed database.
+For a larger production deployment, I would add OpenAPI docs, structured logging, metrics, request IDs, exchange-rate caching, resilience policies for Treasury API outages, a standard JSON library, a robust Java framework like springboot to expose well defined REST end-points,  CI pipeline, container image publishing, and swap the repository interface to a managed database.
