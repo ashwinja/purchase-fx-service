@@ -399,9 +399,9 @@ Status codes:
 The client calls the FiscalData Treasury endpoint with:
 
 ```text
-fields=country_currency_desc,exchange_rate,record_date
-filter=country_currency_desc:eq:{currency},record_date:lte:{purchaseDate},record_date:gte:{purchaseDateMinus6Months}
-sort=-record_date
+fields=country_currency_desc,exchange_rate,effective_date
+filter=country_currency_desc:eq:{currency},effective_date:lte:{purchaseDate},effective_date:gte:{purchaseDateMinus6Months}
+sort=-effective_date
 page[size]=1
 ```
 
