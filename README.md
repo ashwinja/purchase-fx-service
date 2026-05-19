@@ -12,7 +12,7 @@ The service is intentionally dependency-free: no database, servlet container, Ma
 - Validate positive purchase amount and round to the nearest cent.
 - Persist purchases across restarts in `data/purchases.jsonl`.
 - Retrieve a stored purchase converted to a Treasury-supported country/currency.
-- Use the latest Treasury exchange rate `<= transactionDate` and `>= transactionDate - 6 months`.
+- Use the latest Treasury exchange rate where effectiveDate `<= transactionDate` and `>= transactionDate - 6 months`.
 - Return a conversion error if no qualifying rate is available.
 - Round converted amount to two decimals.
 - Include separated unit and functional tests.
